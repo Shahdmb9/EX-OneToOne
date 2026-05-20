@@ -39,7 +39,7 @@ public class TeacherService {
         Teacher teacher=teacherRepository.findTeacherById(id);
         if(teacher==null)
             throw new ApiException("Teacher not found");
-        teacherRepository.deleteById(id);
+        teacherRepository.delete(teacher);
     }
 
     public Teacher getTeacherById(Integer id){

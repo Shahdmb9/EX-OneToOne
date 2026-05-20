@@ -34,7 +34,7 @@ public class AddressService {
         Address address=addressRepository.findAddressById(id);
         if (address==null)
             throw new ApiException("Address not found");
-        addressRepository.deleteById(id);
+        addressRepository.deleteAddressById(id);
     }
 
     public void update(Integer id,Address address){
@@ -44,6 +44,7 @@ public class AddressService {
             throw new ApiException("Address not found");
         oldAddress.setArea(address.getArea());
         oldAddress.setStreet(address.getStreet());
+        oldAddress.setBuilding_number(address.getBuilding_number());
         addressRepository.save(oldAddress);
 
     }
